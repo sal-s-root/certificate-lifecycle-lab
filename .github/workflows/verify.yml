@@ -1,0 +1,14 @@
+name: Verify certificate lifecycle
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Install lab dependencies
+        run: sudo apt-get update && sudo apt-get install -y openssl python3 make
+      - name: Exercise TLS trust and certificate replacement
+        run: make test
