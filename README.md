@@ -28,8 +28,8 @@ process termination may leave the private temporary directory for manual removal
 See [validation](VALIDATION.md) for evidence and limits, and the
 [replacement runbook](RUNBOOK.md) for an operational walkthrough.
 
-This is a learning lab created in November 2026. It does not implement ACME,
-a production certificate authority, revocation, or a zero-downtime reload.
+This learning lab covers local trust and stop/start replacement. ACME, certificate
+authority operations, revocation, and uninterrupted reload are separate integration exercises.
 
 ## References
 

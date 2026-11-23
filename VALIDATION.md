@@ -1,9 +1,11 @@
 # Validation
 
-Local execution on November 23, 2026: all five checks passed.
-Environment: Python 3.14.10; OpenSSL 3.5.9 29 Sep 2026 (Library: OpenSSL 3.5.9 29 Sep 2026).
-Hosted workflow verification is checked after publication.
-The checks use fresh disposable credentials and live loopback TLS handshakes.
-Expiry is evaluated with OpenSSL's future-time verification, without changing the
-system clock. This is not a client connection made with an already expired leaf.
-No external service, cloud deployment, ACME renewal, or production reload is tested.
+Five local checks and the GitHub Actions workflow passed: trusted HTTPS, rejected
+unknown CA, rejected hostname mismatch, replacement on the same endpoint, and
+future-time expiry verification.
+
+## Coverage
+
+Fresh disposable certificates and live loopback TLS connections. OpenSSL evaluates
+expiry at a future verification time; the system clock stays unchanged. Certificate
+replacement uses stop/start. ACME and public certificate issuance are separate integrations.
